@@ -1,0 +1,20 @@
+.layout-container {
+  height: 100vh;              /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-content {
+  flex: 1;                    /* Take remaining space between header & footer */
+  overflow: hidden;           /* Prevent scrollbars */
+  display: flex;
+  align-items: center;        /* Vertically center content */
+  justify-content: center;    /* Horizontally center content */
+  padding: 16px;
+}

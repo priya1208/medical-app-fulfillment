@@ -1,0 +1,26 @@
+<!-- <mat-sidenav-container class="main-container">
+  <mat-sidenav-content>
+    <app-header></app-header>
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<mat-sidenav-container class="layout-container">
+  <mat-sidenav-content class="layout-content">
+
+    <!-- Header -->
+    <app-header></app-header>
+
+    <!-- Main content area -->
+    <main class="page-content">
+      <router-outlet></router-outlet>
+    </main>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

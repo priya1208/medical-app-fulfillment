@@ -1,0 +1,34 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.login-card {
+  width: 800px;
+ height: 350px;
+  padding: 24px;
+   max-width: 700px;
+  margin: 0 auto 30px auto;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  background-color: white;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error-text {
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+.login-card h2 {
+  color: #1976d2; /* blue color */
+  margin-bottom: 20px;
+  font-weight: 600;
+  align-content: center;
+}

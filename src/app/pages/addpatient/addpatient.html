@@ -1,0 +1,65 @@
+<div class="patient-page">
+
+    <mat-card class="patient-form-card">
+        <mat-toolbar color="primary">Add Patient</mat-toolbar>
+
+
+        <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+            <div class="form-grid">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name *</mat-label>
+                    <input matInput formControlName="first_name" />
+                    <mat-error *ngIf="patientForm.get('first_name')?.hasError('required')">Required</mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="last_name" />
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Mobile *</mat-label>
+                    <input matInput formControlName="mobile" />
+                    <mat-error *ngIf="patientForm.get('mobile')?.hasError('pattern')">Expect 10-digit mobile</mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Zipcode</mat-label>
+                    <input matInput formControlName="zipcode" />
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput formControlName="dob" placeholder="YYYY-MM-DD" />
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender">
+                        <mat-option value="male">Male</mat-option>
+                        <mat-option value="female">Female</mat-option>
+                        <mat-option value="other">Other</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Blood Group</mat-label>
+                    <input matInput formControlName="blood_group" />
+                </mat-form-field>
+            </div>
+
+            <div class="actions">
+                <button mat-flat-button color="primary" type="submit" [disabled]="patientForm.invalid">
+                    Save Patient
+                </button>
+
+                <button mat-stroked-button color="accent" routerLink="/checkout">
+                    Go to Checkout
+                </button>
+            </div>

@@ -1,0 +1,16 @@
+<!-- <p>header works!</p> -->
+<mat-card class="header-card" appearance="outlined">
+    <mat-toolbar color="primary">
+        <span class="logo">💊 MedEase</span>
+        <span class="spacer"></span>
+        <nav>
+            <button mat-button routerLink="/" routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{ exact: true }">Home</button>
+            <button mat-button routerLink="/login" routerLinkActive="active-link">Login</button>
+            <button mat-button routerLink="/dashboard" routerLinkActive="active-link">Dashboard</button>
+            <button mat-button routerLink="/add-patient" routerLinkActive="active-link">Add Patient</button>
+            <button mat-button routerLink="/checkout" routerLinkActive="active-link">Checkout</button>
+
+        </nav>
+    </mat-toolbar>
+</mat-card>

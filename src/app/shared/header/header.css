@@ -1,0 +1,48 @@
+.header-card {
+  margin: 0;
+  border-radius: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+nav button {
+  color: white;
+  margin-left: 12px;
+}
+.active-link {
+  font-weight: bold;
+  border-bottom: 2px solid rgb(178, 29, 168);
+}
+mat-toolbar {
+  color:  black; /* Default text color */
+  background-color: #1976d2; /* Primary blue, or your own */
+}
+
+/* Example: make logo a different color */
+.logo {
+  color: #3bceff; /* Yellow */
+  font-weight: 1000;
+  font-size: 1.5rem;
+}
+
+/* Navigation buttons text color */
+nav button {
+  background-color: rgb(60, 10, 166) !important; /* Override Material default */
+  text-transform: none;
+  font-weight: 1000;
+}
+
+/* Hover effect for buttons */
+nav button:hover {
+  color: #aa3bff !important; /* yellow on hover */
+}
+

@@ -1,0 +1,52 @@
+<!-- <p>checkout works!</p> -->
+<div class="checkout-page">
+  <mat-card class="checkout-card">
+    <h2 class="title">🧾 Checkout</h2>
+
+    <!-- Patient Info -->
+    <div *ngIf="patient; else noPatient" class="patient-info">
+      <h3>👤 Patient Details</h3>
+      <p><strong>Name:</strong> {{ patient.first_name }} {{ patient.last_name }}</p>
+      <p><strong>Mobile:</strong> {{ patient.mobile }}</p>
+      <p><strong>Gender:</strong> {{ patient.gender || '-' }}</p>
+      <p><strong>Blood Group:</strong> {{ patient.blood_group || '-' }}</p>
+    </div>
+
+    <ng-template #noPatient>
+      <p class="no-patient">No patient found. Please add one first.</p>
+    </ng-template>
+
+    <hr />
+
+    <!-- Medicine List -->
+    <h3>💊 Medicines</h3>
+    <table class="medicine-table" *ngIf="medicines.length; else emptyList">
+      <thead>
+        <tr>
+          <th>Medicine</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let med of medicines">
+          <td>{{ med.name }}</td>
+          <td>{{ med.qty }}</td>
+          <td>₹{{ med.price }}</td>
+          <td>₹{{ med.qty * med.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #emptyList>
+      <p>No medicines in cart.</p>
+    </ng-template>
+
+    <h3 class="total">Total: ₹{{ totalAmount }}</h3>
+
+    <div class="actions">
+      <button mat-flat-button color="primary" (click)="placeOrder()">Place Order</button>
+    </div>
+  </mat-card>
+</div>

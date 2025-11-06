@@ -1,0 +1,83 @@
+<div class="dashboard-container">
+  <!-- 🔹 Header Toolbar -->
+  <mat-toolbar color="primary">
+    <span class="logo">💊 EvitalRx Dashboard</span>
+    <span class="spacer"></span>
+
+    <!-- Checkout Button -->
+    <button mat-button routerLink="/checkout">
+      🧾 Checkout ({{ orderList.length }})
+    </button>
+
+    <!-- Logout Button -->
+    <button mat-button color="accent" (click)="logout()">
+      🚪 Logout
+    </button>
+  </mat-toolbar>
+
+  <!-- 🔹 Search Field -->
+  <mat-card class="search-card" appearance="outlined">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search Medicines</mat-label>
+      <input
+        matInput
+        placeholder="Enter medicine name"
+        [(ngModel)]="searchTerm"
+        (keyup)="onSearch()"
+      />
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-card>
+
+  <!-- 🔹 Loading Spinner -->
+ <div class="dashboard-container">
+  <!-- ...toolbar and search field as you already have... -->
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+
+  <!-- Show table only after search, not on load -->
+ <mat-card
+  class="medicine-table-card"
+  appearance="outlined"
+  *ngIf="!loading && searchTerm && displayedMedicines.length > 0">
+  <h3>💊 Medicine Search Results</h3>
+  <div class="table-scroll">
+  <table class="order-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Medicine Name</th>
+        <th>Price (₹)</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let med of displayedMedicines; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ med.medicine_name }}</td>
+        <td>{{ med.mrp }}</td>
+        <td>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="addToOrder(med)"
+            [disabled]="isAdded(med)">
+            {{ isAdded(med) ? '✅ Added' : '➕ Add to Order' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</mat-card>
+
+<div class="proceed-checkout">
+  <button mat-raised-button color="primary" (click)="proceedToCheckout()">🧾 Proceed to Checkout</button>
+</div>
+</div>
+</div>
